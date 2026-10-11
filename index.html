@@ -4,27 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Bajun Kisku | Professional Portfolio</title>
+<title>Bajun Kisku | Web Developer Portfolio</title>
 
-<meta name="description"
-content="Bajun Kisku's personal portfolio for web design, app development and AI integration.">
+<meta name="description" content="Bajun Kisku's portfolio showcasing web design, website development and digital projects.">
 
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-html {
-    scroll-behavior: smooth;
+:root {
+    --background: #080d1c;
+    --card: #111a35;
+    --purple: #9b6cff;
+    --text: #f5f7ff;
+    --muted: #b8c0d9;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: #080d1c;
-    color: #f5f7ff;
+    background: var(--background);
+    color: var(--text);
     line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .container {
@@ -33,295 +42,278 @@ body {
     margin: auto;
 }
 
-nav {
+header {
+    background: rgba(8, 13, 28, 0.96);
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #0c1228;
-    border-bottom: 1px solid #252d4b;
-    padding: 15px 0;
+    border-bottom: 1px solid #293253;
 }
 
-.nav-content {
+.navbar {
+    min-height: 85px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 15px;
+    align-items: center;
+    gap: 20px;
 }
 
 .logo {
-    font-size: 22px;
+    color: var(--purple);
+    font-size: 28px;
     font-weight: bold;
-    color: #a78bfa;
 }
 
-.nav-links {
+nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 22px;
 }
 
-.nav-links a {
-    color: #e5e7eb;
-    text-decoration: none;
-    font-size: 14px;
+nav a {
+    font-size: 15px;
+    transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: #a78bfa;
+nav a:hover {
+    color: var(--purple);
+}
+
+section {
+    padding: 85px 0;
+    scroll-margin-top: 85px;
 }
 
 .hero {
-    padding: 75px 0;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    text-align: center;
     background:
-        radial-gradient(
-            circle at 85% 20%,
-            #43227a 0,
-            transparent 38%
-        ),
-        linear-gradient(135deg, #080d1c, #111a39);
+        radial-gradient(circle at top right, #39205f 0, transparent 45%);
 }
 
 .hero-content {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 40px;
-    align-items: center;
+    max-width: 850px;
+    margin: auto;
 }
 
-.tag {
-    color: #a78bfa;
-    letter-spacing: 2px;
-    font-size: 13px;
-    font-weight: bold;
+.badge {
+    display: inline-block;
+    border: 1px solid #6846a9;
+    color: #c7aaff;
+    padding: 7px 18px;
+    border-radius: 30px;
+    margin-bottom: 25px;
 }
 
 h1 {
-    font-size: clamp(34px, 5vw, 55px);
+    font-size: clamp(38px, 7vw, 68px);
     line-height: 1.2;
-    margin: 18px 0;
+    margin-bottom: 20px;
 }
 
-.highlight {
-    color: #a78bfa;
+h1 span,
+.section-title span {
+    color: var(--purple);
 }
 
 .hero h2 {
-    font-size: 23px;
-    margin-bottom: 15px;
+    font-size: clamp(22px, 4vw, 34px);
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--muted);
+    font-size: 17px;
 }
 
 .hero p {
-    color: #c4cbe0;
-    margin-bottom: 25px;
+    max-width: 700px;
+    margin: 0 auto 30px;
 }
 
 .buttons {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 15px;
+    margin-top: 25px;
 }
 
 .btn {
     display: inline-block;
-    padding: 12px 22px;
-    border-radius: 9px;
-    text-decoration: none;
+    padding: 13px 23px;
+    border-radius: 12px;
+    border: 1px solid var(--purple);
     font-weight: bold;
-    border: 1px solid #8b5cf6;
     transition: 0.3s;
-    cursor: pointer;
 }
 
-.primary {
-    background: #7c3aed;
-    color: white;
-}
-
-.secondary {
-    color: white;
-    background: transparent;
+.btn-primary {
+    background: linear-gradient(135deg, #783cf0, #a16bff);
+    border: none;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-}
-
-.photo-box {
-    text-align: center;
-}
-
-.profile {
-    width: 270px;
-    height: 320px;
-    max-width: 100%;
-    object-fit: cover;
-    object-position: center 25%;
-    border-radius: 25px;
-    border: 3px solid #8b5cf6;
-    box-shadow: 0 0 40px #7c3aed45;
-    display: block;
-    margin: 0 auto 15px;
-}
-
-.upload-label {
-    display: inline-block;
-    padding: 9px 15px;
-    background: #20294a;
-    color: #ddd6fe;
-    border: 1px solid #8b5cf6;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-#photoInput {
-    display: none;
-}
-
-section {
-    padding: 70px 0;
-    scroll-margin-top: 75px;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px #7545c744;
 }
 
 .section-title {
     text-align: center;
-    font-size: 34px;
-    margin-bottom: 10px;
+    font-size: clamp(30px, 5vw, 43px);
+    margin-bottom: 12px;
 }
 
 .section-subtitle {
     text-align: center;
-    color: #aab3cc;
-    margin-bottom: 35px;
+    margin-bottom: 45px;
 }
 
-.about-box {
-    max-width: 850px;
-    margin: auto;
-    padding: 30px;
-    background: #101831;
-    border: 1px solid #273253;
-    border-radius: 18px;
-    color: #d3daed;
-}
-
-.cards {
+.card-grid {
     display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
 }
 
 .card {
-    background: linear-gradient(145deg, #111b39, #171c40);
-    border: 1px solid #343b68;
-    border-radius: 16px;
-    padding: 25px;
+    background: linear-gradient(145deg, #131d3b, #10172e);
+    border: 1px solid #303c65;
+    border-radius: 20px;
+    padding: 28px;
     transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    border-color: #a78bfa;
+    transform: translateY(-6px);
+    border-color: var(--purple);
 }
 
 .card h3 {
-    color: #c4b5fd;
+    color: #c5a5ff;
+    font-size: 22px;
     margin-bottom: 12px;
 }
 
 .card p {
-    color: #bac4dc;
-    font-size: 15px;
+    font-size: 16px;
 }
 
-.skills {
+.icon {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.skill-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 15px;
 }
 
-.skills span {
-    background: #171f3b;
-    color: #d8ccff;
-    border: 1px solid #433477;
-    padding: 10px 18px;
-    border-radius: 25px;
+.skill {
+    background: #151f40;
+    color: #d6c7ff;
+    border: 1px solid #5b438e;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 17px;
 }
 
-.project-status {
-    display: inline-block;
-    margin-top: 15px;
-    font-size: 12px;
-    color: #c4b5fd;
-    border: 1px solid #6551a0;
-    padding: 4px 9px;
-    border-radius: 15px;
-}
-
-.contact-box {
-    max-width: 650px;
+.about-box {
+    max-width: 800px;
     margin: auto;
-    text-align: center;
-    background: #101831;
-    border: 1px solid #343b68;
-    padding: 35px 20px;
+    padding: 35px;
+    background: var(--card);
+    border: 1px solid #303c65;
     border-radius: 20px;
 }
 
+.about-box p + p {
+    margin-top: 20px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #c7aaff;
+    border-bottom: 1px solid var(--purple);
+}
+
+.contact-box {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+    padding: 40px 25px;
+    background: var(--card);
+    border: 1px solid #303c65;
+    border-radius: 22px;
+}
+
 .contact-box p {
-    color: #c4cbe0;
-    margin: 15px 0 25px;
+    margin: 12px 0;
+    overflow-wrap: anywhere;
 }
 
 footer {
+    padding: 25px 0;
     text-align: center;
-    background: #060a15;
-    border-top: 1px solid #252d4b;
-    padding: 25px 15px;
-    color: #aab3cc;
+    border-top: 1px solid #293253;
+}
+
+footer p {
     font-size: 14px;
 }
 
-@media (max-width: 700px) {
-    .nav-content {
+@media (max-width: 800px) {
+    .navbar {
+        padding: 18px 0;
         flex-direction: column;
     }
 
-    .nav-links {
+    nav {
         justify-content: center;
-        gap: 12px;
+        gap: 12px 18px;
     }
 
-    .hero {
-        padding: 50px 0;
-    }
-
-    .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .photo-box {
-        grid-row: 1;
-    }
-
-    .profile {
-        width: 220px;
-        height: 260px;
-    }
-
-    .buttons {
-        justify-content: center;
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     section {
-        padding: 50px 0;
+        padding: 65px 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .card-grid {
+        grid-template-columns: 1fr;
     }
 
-    .section-title {
-        font-size: 28px;
+    .hero {
+        min-height: auto;
+        padding: 85px 0;
+    }
+
+    .about-box {
+        padding: 25px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
     }
 }
 </style>
@@ -329,151 +321,166 @@ footer {
 
 <body>
 
-<nav>
-    <div class="container nav-content">
-        <div class="logo">BK. Portfolio</div>
+<header>
+    <div class="container navbar">
+        <a class="logo" href="#home">BK. Portfolio</a>
 
-        <div class="nav-links">
+        <nav aria-label="Main navigation">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
-        </div>
-    </div>
-</nav>
-
-<header class="hero" id="home">
-    <div class="container hero-content">
-
-        <div>
-            <div class="tag">WELCOME TO MY PORTFOLIO</div>
-
-            <h1>
-                Hi, I'm <span class="highlight">Bajun Kisku</span>
-            </h1>
-
-            <h2>Future Web Developer & AI Learner</h2>
-
-            <p>
-                I am learning to build modern websites,
-                responsive web applications and AI-powered
-                digital experiences.
-            </p>
-
-            <div class="buttons">
-                <a class="btn primary" href="#projects">
-                    Explore My Work
-                </a>
-
-                <a class="btn secondary" href="#contact">
-                    Contact Me
-                </a>
-            </div>
-        </div>
-
-        <div class="photo-box">
-            <img
-                id="profileImage"
-                class="profile"
-                alt="Bajun Kisku profile photo"
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='270' height='320'%3E%3Crect width='100%25' height='100%25' fill='%23101831'/%3E%3Ctext x='50%25' y='45%25' text-anchor='middle' font-size='65' fill='%23a78bfa'%3EBK%3C/text%3E%3Ctext x='50%25' y='60%25' text-anchor='middle' font-size='14' fill='white'%3EYour Photo%3C/text%3E%3C/svg%3E"
-            >
-
-            <label for="photoInput" class="upload-label">
-                Choose Your Photo
-            </label>
-
-            <input
-                type="file"
-                id="photoInput"
-                accept="image/*"
-            >
-        </div>
-
+        </nav>
     </div>
 </header>
 
-<section id="about">
-    <div class="container">
-        <h2 class="section-title">About Me</h2>
+<main>
 
-        <p class="section-subtitle">
-            A little introduction about myself
+<section class="hero" id="home">
+    <div class="container hero-content">
+
+        <span class="badge">WELCOME TO MY PORTFOLIO</span>
+
+        <h1>Hi, I'm <span>Bajun Kisku</span></h1>
+
+        <h2>Web Developer in Training & AI Learner</h2>
+
+        <p>
+            I am learning to build modern websites, responsive web
+            applications and useful digital experiences. I enjoy learning
+            new technologies and creating projects step by step.
         </p>
 
-        <div class="about-box">
-            Hello! My name is Bajun Kisku.
+        <div class="buttons">
+            <a class="btn btn-primary" href="#projects">
+                Explore My Work
+            </a>
 
-            I am learning web design, app development
-            and artificial intelligence.
-
-            <br><br>
-
-            My goal is to build useful digital products,
-            solve real-world problems and grow as a developer.
-            I enjoy learning new technologies and creating
-            projects step by step.
+            <a class="btn" href="#contact">
+                Contact Me
+            </a>
         </div>
+
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+
+        <h2 class="section-title">About <span>Me</span></h2>
+        <p class="section-subtitle">A little introduction about myself</p>
+
+        <div class="about-box">
+            <p>
+                Hello! My name is Bajun Kisku. I am learning web design,
+                website development and artificial intelligence.
+            </p>
+
+            <p>
+                My goal is to build useful digital products, solve
+                real-world problems and grow as a developer. I enjoy
+                learning new technologies and creating projects step by step.
+            </p>
+
+            <p>
+                I believe in continuous learning, practical experience
+                and improving my skills through real projects.
+            </p>
+        </div>
+
     </div>
 </section>
 
 <section id="skills">
     <div class="container">
-        <h2 class="section-title">My Learning Skills</h2>
 
-        <p class="section-subtitle">
-            Technologies I am learning
-        </p>
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <p class="section-subtitle">Technologies I am learning</p>
 
-        <div class="skills">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>Responsive Design</span>
-            <span>No-Code Development</span>
-            <span>API Integration</span>
-            <span>AI Integration</span>
+        <div class="skill-list">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Responsive Design</span>
+            <span class="skill">GitHub</span>
+            <span class="skill">Website Publishing</span>
+            <span class="skill">API Integration — Learning</span>
+            <span class="skill">AI Tools — Learning</span>
         </div>
+
     </div>
 </section>
 
 <section id="projects">
     <div class="container">
-        <h2 class="section-title">My Projects</h2>
 
+        <h2 class="section-title">My <span>Projects</span></h2>
         <p class="section-subtitle">
             My learning projects and experiments
         </p>
 
-        <div class="cards">
+        <div class="card-grid">
 
             <article class="card">
+                <div class="icon">🌐</div>
                 <h3>Portfolio Website</h3>
                 <p>
-                    A personal website to introduce myself
-                    and present my development journey.
+                    My personal portfolio website showcasing my learning
+                    journey, skills and projects.
                 </p>
-                <span class="project-status">Current Project</span>
+                <span class="project-link">Current Project</span>
             </article>
 
             <article class="card">
+                <div class="icon">🏫</div>
+                <h3>School Website</h3>
+                <p>
+                    A school website project designed to present school
+                    information in an organised way.
+                </p>
+                <span class="project-link">Website Project</span>
+            </article>
+
+            <article class="card">
+                <div class="icon">📚</div>
                 <h3>English Grammar Quiz</h3>
                 <p>
-                    An educational quiz project planned
-                    for English grammar practice.
+                    An educational quiz project planned for English
+                    grammar practice.
                 </p>
-                <span class="project-status">Planned Project</span>
+                <span class="project-link">Learning Project</span>
             </article>
 
             <article class="card">
+                <div class="icon">🛍️</div>
+                <h3>Murmu Saree</h3>
+                <p>
+                    An e-commerce learning project for sarees, kurtis
+                    and children's clothing.
+                </p>
+                <span class="project-link">In Development</span>
+            </article>
+
+            <article class="card">
+                <div class="icon">🏥</div>
+                <h3>Healthcare Website</h3>
+                <p>
+                    A website project for presenting healthcare services
+                    and hospital information.
+                </p>
+                <span class="project-link">Website Project</span>
+            </article>
+
+            <article class="card">
+                <div class="icon">🤖</div>
                 <h3>AI Assistant</h3>
                 <p>
-                    A learning project exploring AI-powered
-                    questions and answers.
+                    A learning project exploring AI-powered questions
+                    and answers.
                 </p>
-                <span class="project-status">Planned Project</span>
+                <span class="project-link">Planned Project</span>
             </article>
 
         </div>
@@ -482,35 +489,38 @@ footer {
 
 <section id="services">
     <div class="container">
-        <h2 class="section-title">My Learning Goals</h2>
 
+        <h2 class="section-title">My <span>Services</span></h2>
         <p class="section-subtitle">
-            What I am working towards
+            Services I am developing skills to provide
         </p>
 
-        <div class="cards">
+        <div class="card-grid">
 
             <article class="card">
-                <h3>Web Design</h3>
+                <div class="icon">🎨</div>
+                <h3>Website Design</h3>
                 <p>
-                    Learning to create attractive,
-                    mobile-friendly websites.
+                    Modern website layouts with clean design,
+                    readable text and attractive colours.
                 </p>
             </article>
 
             <article class="card">
-                <h3>Web Applications</h3>
+                <div class="icon">💻</div>
+                <h3>Website Development</h3>
                 <p>
-                    Learning to build interactive
-                    applications for everyday tasks.
+                    Building responsive websites using HTML,
+                    CSS and JavaScript.
                 </p>
             </article>
 
             <article class="card">
-                <h3>AI Integration</h3>
+                <div class="icon">📱</div>
+                <h3>Mobile-Friendly Websites</h3>
                 <p>
-                    Learning to connect AI services
-                    with websites and applications.
+                    Creating layouts that adapt to mobile phones,
+                    tablets and desktop screens.
                 </p>
             </article>
 
@@ -520,54 +530,56 @@ footer {
 
 <section id="contact">
     <div class="container">
+
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+        <p class="section-subtitle">
+            Have a project or want to get in touch?
+        </p>
+
         <div class="contact-box">
-            <h2 class="section-title">Let's Connect</h2>
+            <h3>Contact Bajun Kisku</h3>
 
             <p>
-                Thank you for visiting my portfolio.
-                I am learning, practising and building
-                new projects every day.
+                Email:
+                <a href="mailto:kisku2511117@gmail.com">
+                    kisku2511117@gmail.com
+                </a>
             </p>
 
-            <a class="btn primary"
-               href="mailto:your-email@example.com">
-                Email Me
-            </a>
+            <p>
+                Available for enquiries about website projects.
+            </p>
+
+            <div class="buttons">
+
+                <a class="btn btn-primary"
+                   href="https://wa.me/919734343133"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    WhatsApp Me
+                </a>
+
+                <a class="btn"
+                   href="mailto:kisku2511117@gmail.com?subject=Website%20Project%20Enquiry">
+                    Email Me
+                </a>
+
+            </div>
         </div>
+
     </div>
 </section>
 
+</main>
+
 <footer>
-    <p>
-        © 2026 Bajun Kisku | Personal Portfolio
-    </p>
+    <div class="container">
+        <p>
+            &copy; 2026 Bajun Kisku | Portfolio Website
+        </p>
+        <p>Learning today, building tomorrow.</p>
+    </div>
 </footer>
-
-<script>
-const photoInput = document.getElementById("photoInput");
-const profileImage = document.getElementById("profileImage");
-
-photoInput.addEventListener("change", function () {
-    const file = this.files[0];
-
-    if (!file) {
-        return;
-    }
-
-    if (!file.type.startsWith("image/")) {
-        alert("Please choose an image file.");
-        return;
-    }
-
-    const reader = new FileReader();
-
-    reader.onload = function (event) {
-        profileImage.src = event.target.result;
-    };
-
-    reader.readAsDataURL(file);
-});
-</script>
 
 </body>
 </html>
