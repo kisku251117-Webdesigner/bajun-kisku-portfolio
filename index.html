@@ -2,584 +2,1243 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#080d1c">
+
+<meta name="description"
+content="Bajun Kisku's portfolio showcasing website design, web development, responsive layouts and learning projects.">
+
+<meta name="author" content="Bajun Kisku">
 
 <title>Bajun Kisku | Web Developer Portfolio</title>
 
-<meta name="description" content="Bajun Kisku's portfolio showcasing web design, website development and digital projects.">
-
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+/* =========================
+   1. GLOBAL SETTINGS
+========================= */
 
 :root {
-    --background: #080d1c;
-    --card: #111a35;
-    --purple: #9b6cff;
-    --text: #f5f7ff;
-    --muted: #b8c0d9;
+  --bg: #080d1c;
+  --bg-light: #0e1630;
+  --card: #111a35;
+  --purple: #a78bfa;
+  --purple-bright: #8b5cf6;
+  --text: #f5f7ff;
+  --muted: #b8c4df;
+  --border: rgba(167, 139, 250, 0.24);
+  --green: #25d366;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: var(--background);
-    color: var(--text);
-    line-height: 1.7;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
 }
 
 .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-header {
-    background: rgba(8, 13, 28, 0.96);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid #293253;
-}
-
-.navbar {
-    min-height: 85px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.logo {
-    color: var(--purple);
-    font-size: 28px;
-    font-weight: bold;
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 22px;
-}
-
-nav a {
-    font-size: 15px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: var(--purple);
+  width: min(1100px, 90%);
+  margin: auto;
 }
 
 section {
-    padding: 85px 0;
-    scroll-margin-top: 85px;
+  padding: 90px 0;
+  scroll-margin-top: 100px;
 }
 
-.hero {
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    background:
-        radial-gradient(circle at top right, #39205f 0, transparent 45%);
+.section-heading {
+  text-align: center;
+  margin-bottom: 48px;
 }
 
-.hero-content {
-    max-width: 850px;
-    margin: auto;
+.section-heading h2 {
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.2;
+  margin-bottom: 14px;
 }
 
-.badge {
-    display: inline-block;
-    border: 1px solid #6846a9;
-    color: #c7aaff;
-    padding: 7px 18px;
-    border-radius: 30px;
-    margin-bottom: 25px;
+.section-heading h2 span,
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #a78bfa,
+    #d8b4fe,
+    #8b5cf6
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-h1 {
-    font-size: clamp(38px, 7vw, 68px);
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-h1 span,
-.section-title span {
-    color: var(--purple);
-}
-
-.hero h2 {
-    font-size: clamp(22px, 4vw, 34px);
-    margin-bottom: 20px;
-}
-
-p {
-    color: var(--muted);
-    font-size: 17px;
-}
-
-.hero p {
-    max-width: 700px;
-    margin: 0 auto 30px;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 13px 23px;
-    border-radius: 12px;
-    border: 1px solid var(--purple);
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #783cf0, #a16bff);
-    border: none;
-}
-
-.btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px #7545c744;
-}
-
-.section-title {
-    text-align: center;
-    font-size: clamp(30px, 5vw, 43px);
-    margin-bottom: 12px;
-}
-
-.section-subtitle {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+.section-heading p {
+  color: var(--muted);
+  font-size: 17px;
 }
 
 .card {
-    background: linear-gradient(145deg, #131d3b, #10172e);
-    border: 1px solid #303c65;
-    border-radius: 20px;
-    padding: 28px;
-    transition: 0.3s;
+  background: linear-gradient(
+    145deg,
+    rgba(22, 32, 65, 0.95),
+    rgba(14, 22, 48, 0.95)
+  );
+
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 30px;
+  transition: 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-6px);
-    border-color: var(--purple);
+  transform: translateY(-6px);
+  border-color: var(--purple);
+  box-shadow: 0 15px 40px rgba(91, 33, 182, 0.15);
 }
 
-.card h3 {
-    color: #c5a5ff;
-    font-size: 22px;
-    margin-bottom: 12px;
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  padding: 14px 23px;
+  border-radius: 13px;
+
+  border: 1px solid var(--purple-bright);
+  color: var(--text);
+
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.card p {
-    font-size: 16px;
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #a855f7
+  );
+
+  border-color: transparent;
 }
 
-.icon {
-    font-size: 34px;
-    margin-bottom: 12px;
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.25);
 }
 
-.skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+.btn-outline {
+  background: transparent;
 }
 
-.skill {
-    background: #151f40;
-    color: #d6c7ff;
-    border: 1px solid #5b438e;
-    padding: 12px 22px;
-    border-radius: 30px;
-    font-size: 17px;
+.small-label {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  color: var(--purple);
+  font-size: 13px;
+  font-weight: 700;
 }
 
-.about-box {
-    max-width: 800px;
-    margin: auto;
-    padding: 35px;
-    background: var(--card);
-    border: 1px solid #303c65;
-    border-radius: 20px;
+/* =========================
+   2. NAVIGATION
+========================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(8, 13, 28, 0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(15px);
 }
 
-.about-box p + p {
-    margin-top: 20px;
+.navbar {
+  min-height: 76px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: 800;
+  color: var(--purple);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 15px;
+  transition: 0.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple);
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  color: white;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 8px 12px;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+/* =========================
+   3. HERO SECTION
+========================= */
+
+.hero {
+  min-height: 620px;
+  padding: 75px 0;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(124, 58, 237, 0.22),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 10% 80%,
+      rgba(59, 130, 246, 0.10),
+      transparent 40%
+    );
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5.5vw, 66px);
+  line-height: 1.12;
+  margin: 24px 0;
+  letter-spacing: -1.5px;
+}
+
+.hero h2 {
+  font-size: clamp(20px, 3vw, 28px);
+  margin-bottom: 18px;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 17px;
+  max-width: 620px;
+  margin-bottom: 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.profile-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.profile-frame {
+  width: min(100%, 310px);
+  aspect-ratio: 4 / 5;
+
+  border: 2px solid var(--purple-bright);
+  border-radius: 32px;
+
+  background: linear-gradient(
+    145deg,
+    #151e3b,
+    #0d1328
+  );
+
+  box-shadow:
+    0 0 45px rgba(139, 92, 246, 0.18);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.profile-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.profile-placeholder {
+  text-align: center;
+  padding: 20px;
+}
+
+.profile-placeholder strong {
+  display: block;
+  color: var(--purple);
+  font-size: 78px;
+  line-height: 1.2;
+}
+
+.profile-placeholder span {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.photo-upload {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 17px;
+  border: 1px solid var(--purple);
+  border-radius: 12px;
+
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.photo-upload:hover {
+  background: rgba(139, 92, 246, 0.12);
+}
+
+.photo-upload input {
+  display: none;
+}
+
+.photo-note {
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* =========================
+   4. ABOUT
+========================= */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: stretch;
+}
+
+.about-card h3 {
+  color: var(--purple);
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.about-card p {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.info-list {
+  list-style: none;
+}
+
+.info-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.info-list strong {
+  color: var(--text);
+}
+
+/* =========================
+   5. SKILLS
+========================= */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 17px;
+}
+
+.skill-card {
+  text-align: center;
+  padding: 24px 14px;
+}
+
+.skill-icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.skill-card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.skill-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================
+   6. PROJECTS
+========================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-icon {
+  font-size: 37px;
+  margin-bottom: 17px;
+}
+
+.project-card h3 {
+  color: var(--purple);
+  font-size: 24px;
+  margin-bottom: 13px;
+}
+
+.project-card p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.project-status {
+  display: inline-block;
+  border: 1px solid var(--border);
+  color: var(--purple);
+  padding: 5px 11px;
+  border-radius: 50px;
+  font-size: 12px;
+  margin-bottom: 18px;
 }
 
 .project-link {
-    display: inline-block;
-    margin-top: 20px;
-    color: #c7aaff;
-    border-bottom: 1px solid var(--purple);
+  display: inline-block;
+  color: var(--purple);
+  border-bottom: 1px solid var(--purple);
+  font-weight: 700;
+  margin-top: auto;
 }
 
-.contact-box {
-    max-width: 750px;
-    margin: auto;
-    text-align: center;
-    padding: 40px 25px;
-    background: var(--card);
-    border: 1px solid #303c65;
-    border-radius: 22px;
+.project-link:hover {
+  color: white;
 }
 
-.contact-box p {
-    margin: 12px 0;
-    overflow-wrap: anywhere;
+/* =========================
+   7. SERVICES
+========================= */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
 }
+
+.service-card .service-icon {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  color: var(--purple);
+  font-size: 21px;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* =========================
+   8. LEARNING GOALS
+========================= */
+
+.goals-list {
+  max-width: 800px;
+  margin: auto;
+}
+
+.goal {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.goal-icon {
+  color: var(--purple);
+  font-size: 22px;
+}
+
+.goal p {
+  color: var(--muted);
+}
+
+/* =========================
+   9. CONTACT
+========================= */
+
+.contact-wrapper {
+  max-width: 780px;
+  margin: auto;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 45px 30px;
+}
+
+.contact-card h3 {
+  font-size: 27px;
+  margin-bottom: 15px;
+}
+
+.contact-card > p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.contact-details {
+  display: grid;
+  gap: 13px;
+  margin: 25px 0;
+}
+
+.contact-item {
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.08);
+  overflow-wrap: anywhere;
+}
+
+.contact-item span {
+  color: var(--muted);
+  display: block;
+  font-size: 13px;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.whatsapp {
+  background: var(--green);
+  color: #07150c;
+  border-color: var(--green);
+}
+
+/* =========================
+   10. FOOTER
+========================= */
 
 footer {
-    padding: 25px 0;
-    text-align: center;
-    border-top: 1px solid #293253;
+  border-top: 1px solid var(--border);
+  padding: 30px 0;
+  text-align: center;
+  background: #070b17;
 }
 
 footer p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer .footer-tagline {
+  color: var(--purple);
+  margin-top: 7px;
+}
+
+/* =========================
+   11. BACK TO TOP
+========================= */
+
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  z-index: 900;
+
+  width: 45px;
+  height: 45px;
+
+  border: 1px solid var(--purple);
+  border-radius: 50%;
+
+  background: var(--card);
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+
+  display: none;
+}
+
+/* =========================
+   12. RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links a {
     font-size: 14px;
+  }
+
+  .hero-grid {
+    gap: 30px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (max-width: 800px) {
-    .navbar {
-        padding: 18px 0;
-        flex-direction: column;
-    }
+@media (max-width: 700px) {
 
-    nav {
-        justify-content: center;
-        gap: 12px 18px;
-    }
+  section {
+    padding: 68px 0;
+  }
 
-    .card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  .container {
+    width: 90%;
+  }
 
-    section {
-        padding: 65px 0;
-    }
+  .navbar {
+    min-height: 68px;
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+
+    padding: 18px 5% 25px;
+
+    background: rgba(8, 13, 28, 0.99);
+    border-bottom: 1px solid var(--border);
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 12px 5px;
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 55px 0 65px;
+    min-height: auto;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 38px;
+  }
+
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .profile-area {
+    grid-row: 1;
+  }
+
+  .profile-frame {
+    width: min(75%, 250px);
+    border-radius: 26px;
+  }
+
+  .about-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .contact-card {
+    padding: 30px 20px;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .contact-buttons .btn {
+    width: 100%;
+  }
 }
 
-@media (max-width: 520px) {
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 380px) {
 
-    .hero {
-        min-height: auto;
-        padding: 85px 0;
-    }
+  .hero h1 {
+    font-size: 36px;
+  }
 
-    .about-box {
-        padding: 25px;
-    }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 
-    nav a {
-        font-size: 14px;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
-    }
+  .btn {
+    padding: 12px 16px;
+  }
 }
+
+/* Accessibility */
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-    }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="container navbar">
-        <a class="logo" href="#home">BK. Portfolio</a>
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-        <nav aria-label="Main navigation">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
+<header>
+  <nav class="navbar container">
+
+    <a href="#home" class="logo">
+      BK. Portfolio
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navLinks">
+      ☰
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+
+      <li><a href="#home">Home</a></li>
+
+      <li><a href="#about">About</a></li>
+
+      <li><a href="#skills">Skills</a></li>
+
+      <li><a href="#projects">Projects</a></li>
+
+      <li><a href="#services">Services</a></li>
+
+      <li><a href="#goals">Goals</a></li>
+
+      <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+  </nav>
 </header>
+
 
 <main>
 
+<!-- =========================
+     HOME
+========================= -->
+
 <section class="hero" id="home">
-    <div class="container hero-content">
 
-        <span class="badge">WELCOME TO MY PORTFOLIO</span>
+  <div class="container hero-grid">
 
-        <h1>Hi, I'm <span>Bajun Kisku</span></h1>
+    <div class="hero-content">
 
-        <h2>Web Developer in Training & AI Learner</h2>
+      <span class="small-label">
+        WELCOME TO MY PORTFOLIO
+      </span>
 
-        <p>
-            I am learning to build modern websites, responsive web
-            applications and useful digital experiences. I enjoy learning
-            new technologies and creating projects step by step.
-        </p>
+      <h1>
+        Hi, I'm
+        <span class="gradient-text">
+          Bajun Kisku
+        </span>
+      </h1>
 
-        <div class="buttons">
-            <a class="btn btn-primary" href="#projects">
-                Explore My Work
-            </a>
+      <h2>
+        Web Developer in Training
+        <span class="gradient-text">
+          & AI Learner
+        </span>
+      </h2>
 
-            <a class="btn" href="#contact">
-                Contact Me
-            </a>
-        </div>
+      <p>
+        I am learning to build modern websites,
+        responsive web applications and useful digital
+        experiences. I enjoy exploring new technologies
+        and creating projects step by step.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#projects" class="btn btn-primary">
+          Explore My Work ↗
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+          Contact Me
+        </a>
+
+      </div>
 
     </div>
+
+
+    <div class="profile-area">
+
+      <div class="profile-frame">
+
+        <div class="profile-placeholder" id="photoPlaceholder">
+
+          <strong>BK</strong>
+
+          <span>Your Photo</span>
+
+        </div>
+
+        <img
+          id="profileImage"
+          alt="Bajun Kisku profile photo">
+
+      </div>
+
+      <label class="photo-upload">
+
+        📷 Choose Your Photo
+
+        <input
+          type="file"
+          id="photoInput"
+          accept="image/jpeg,image/png,image/webp">
+
+      </label>
+
+      <p class="photo-note">
+        Select a photo from your device.
+        It is saved in this browser only.
+      </p>
+
+    </div>
+
+  </div>
+
 </section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
-    <div class="container">
 
-        <h2 class="section-title">About <span>Me</span></h2>
-        <p class="section-subtitle">A little introduction about myself</p>
+  <div class="container">
 
-        <div class="about-box">
-            <p>
-                Hello! My name is Bajun Kisku. I am learning web design,
-                website development and artificial intelligence.
-            </p>
+    <div class="section-heading">
 
-            <p>
-                My goal is to build useful digital products, solve
-                real-world problems and grow as a developer. I enjoy
-                learning new technologies and creating projects step by step.
-            </p>
+      <h2>About <span>Me</span></h2>
 
-            <p>
-                I believe in continuous learning, practical experience
-                and improving my skills through real projects.
-            </p>
-        </div>
+      <p>A little introduction about myself</p>
 
     </div>
+
+
+    <div class="about-grid">
+
+      <div class="card about-card">
+
+        <h3>My Introduction</h3>
+
+        <p>
+          Hello! My name is Bajun Kisku.
+          I am learning web design, website development
+          and artificial intelligence.
+        </p>
+
+        <p>
+          My goal is to build useful digital products,
+          solve real-world problems and continue
+          improving my technical skills.
+        </p>
+
+        <p>
+          I enjoy learning by building practical
+          projects and improving them over time.
+        </p>
+
+      </div>
+
+
+      <div class="card about-card">
+
+        <h3>My Profile</h3>
+
+        <ul class="info-list">
+
+          <li>
+            <strong>Name:</strong> Bajun Kisku
+          </li>
+
+          <li>
+            <strong>Focus:</strong> Web Development
+          </li>
+
+          <li>
+            <strong>Also Learning:</strong> AI Tools
+          </li>
+
+          <li>
+            <strong>Portfolio:</strong> Personal Projects
+          </li>
+
+          <li>
+            <strong>Goal:</strong> Become a Skilled Developer
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
 
 <section id="skills">
-    <div class="container">
 
-        <h2 class="section-title">My <span>Skills</span></h2>
-        <p class="section-subtitle">Technologies I am learning</p>
+  <div class="container">
 
-        <div class="skill-list">
-            <span class="skill">HTML</span>
-            <span class="skill">CSS</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">Responsive Design</span>
-            <span class="skill">GitHub</span>
-            <span class="skill">Website Publishing</span>
-            <span class="skill">API Integration — Learning</span>
-            <span class="skill">AI Tools — Learning</span>
-        </div>
+    <div class="section-heading">
+
+      <h2>My <span>Skills</span></h2>
+
+      <p>
+        Technologies and tools I am learning
+      </p>
 
     </div>
+
+
+    <div class="skills-grid">
+
+      <div class="card skill-card">
+        <div class="skill-icon">🌐</div>
+        <h3>HTML</h3>
+        <p>Website structure</p>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon">🎨</div>
+        <h3>CSS</h3>
+        <p>Layouts and styling</p>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon">⚡</div>
+        <h3>JavaScript</h3>
+        <p>Interactive websites</p>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon">📱</div>
+        <h3>Responsive Design</h3>
+        <p>Mobile-friendly layouts</p>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon">🐙</div>
+        <h3>GitHub</h3>
+        <p>Code and repositories</p>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon">🚀</div>
+        <h3>Website Publishing</h3>
+        <p>GitHub Pages</p>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon">🔌</div>
+        <h3>API Integration</h3>
+        <p>Learning stage</p>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon">🤖</div>
+        <h3>AI Tools</h3>
+        <p>Learning stage</p>
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
 
 <section id="projects">
-    <div class="container">
 
-        <h2 class="section-title">My <span>Projects</span></h2>
-        <p class="section-subtitle">
-            My learning projects and experiments
-        </p>
+  <div class="container">
 
-        <div class="card-grid">
+    <div class="section-heading">
 
-            <article class="card">
-                <div class="icon">🌐</div>
-                <h3>Portfolio Website</h3>
-                <p>
-                    My personal portfolio website showcasing my learning
-                    journey, skills and projects.
-                </p>
-                <span class="project-link">Current Project</span>
-            </article>
+      <h2>My <span>Projects</span></h2>
 
-            <article class="card">
-                <div class="icon">🏫</div>
-                <h3>School Website</h3>
-                <p>
-                    A school website project designed to present school
-                    information in an organised way.
-                </p>
-                <span class="project-link">Website Project</span>
-            </article>
-
-            <article class="card">
-                <div class="icon">📚</div>
-                <h3>English Grammar Quiz</h3>
-                <p>
-                    An educational quiz project planned for English
-                    grammar practice.
-                </p>
-                <span class="project-link">Learning Project</span>
-            </article>
-
-            <article class="card">
-                <div class="icon">🛍️</div>
-                <h3>Murmu Saree</h3>
-                <p>
-                    An e-commerce learning project for sarees, kurtis
-                    and children's clothing.
-                </p>
-                <span class="project-link">In Development</span>
-            </article>
-
-            <article class="card">
-                <div class="icon">🏥</div>
-                <h3>Healthcare Website</h3>
-                <p>
-                    A website project for presenting healthcare services
-                    and hospital information.
-                </p>
-                <span class="project-link">Website Project</span>
-            </article>
-
-            <article class="card">
-                <div class="icon">🤖</div>
-                <h3>AI Assistant</h3>
-                <p>
-                    A learning project exploring AI-powered questions
-                    and answers.
-                </p>
-                <span class="project-link">Planned Project</span>
-            </article>
-
-        </div>
-    </div>
-</section>
-
-<section id="services">
-    <div class="container">
-
-        <h2 class="section-title">My <span>Services</span></h2>
-        <p class="section-subtitle">
-            Services I am developing skills to provide
-        </p>
-
-        <div class="card-grid">
-
-            <article class="card">
-                <div class="icon">🎨</div>
-                <h3>Website Design</h3>
-                <p>
-                    Modern website layouts with clean design,
-                    readable text and attractive colours.
-                </p>
-            </article>
-
-            <article class="card">
-                <div class="icon">💻</div>
-                <h3>Website Development</h3>
-                <p>
-                    Building responsive websites using HTML,
-                    CSS and JavaScript.
-                </p>
-            </article>
-
-            <article class="card">
-                <div class="icon">📱</div>
-                <h3>Mobile-Friendly Websites</h3>
-                <p>
-                    Creating layouts that adapt to mobile phones,
-                    tablets and desktop screens.
-                </p>
-            </article>
-
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container">
-
-        <h2 class="section-title">Let's <span>Connect</span></h2>
-        <p class="section-subtitle">
-            Have a project or want to get in touch?
-        </p>
-
-        <div class="contact-box">
-            <h3>Contact Bajun Kisku</h3>
-
-            <p>
-                Email:
-                <a href="mailto:kisku2511117@gmail.com">
-                    kisku2511117@gmail.com
-                </a>
-            </p>
-
-            <p>
-                Available for enquiries about website projects.
-            </p>
-
-            <div class="buttons">
-
-                <a class="btn btn-primary"
-                   href="https://wa.me/919734343133"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    WhatsApp Me
-                </a>
-
-                <a class="btn"
-                   href="mailto:kisku2511117@gmail.com?subject=Website%20Project%20Enquiry">
-                    Email Me
-                </a>
-
-            </div>
-        </div>
+      <p>
+        My learning projects and experiments
+      </p>
 
     </div>
-</section>
 
-</main>
 
-<footer>
-    <div class="container">
+    <div class="projects-grid">
+
+
+      <!-- PROJECT 1 -->
+
+      <article class="card project-card">
+
+        <div class="project-icon">🌐</div>
+
+        <h3>Portfolio Website</h3>
+
         <p>
-            &copy; 2026 Bajun Kisku | Portfolio Website
+          My personal portfolio website showcasing
+          my learning journey, skills and projects.
         </p>
-        <p>Learning today, building tomorrow.</p>
-    </div>
-</footer>
 
-</body>
-</html>
+        <span class="project-status">
+          Current Project
+        </span>
+
+        <a href="#home" class="project-link">
+          View Portfolio ↗
+        </a>
+
+      </article>
+
+
+      <!-- PROJECT 2 -->
+
+      <article class="card project-card">
+
+        <div class="project-icon">🏫</div>
+
+        <h3>School Website</h3>
+
+        <p>
+          A website project designed to present
+          school information, activities and
+          educational resources.
+        </p>
+
+        <span class="project-status">
+          Learning Project
+        </span>
+
+        <a
+          href="https://github.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-link">
+          Explore GitHub ↗
+        </a>
+
+      </article>
+
+
+      <!-- PROJECT 3 -->
+
+      <article class="card project-card">
+
+        <div class="project-icon">📚</div>
+
+        <h3>English Grammar Quiz</h3>
+
+        <p>
+          An educational quiz project for practising
+          English grammar and improving knowledge.
+        </p>
+
+        <span class="project-status">
+          In Development
+        </span>
+
+        <a href="#contact" class="project-link">
+          Project Enquiry ↗
+        </a>
+
+      </article>
+
+
+      <!-- PROJECT 4 -->
+
+      <article class="card project-card">
+
+        <div class="project-icon">🛍️</div>
+
+        <h3>Murmu Saree</h3>
+
+        <p>
+          An e-commerce learning project for sarees,
+          kurtis and children's clothing.
+          The goal is to create a simple shopping
+          experience.
+        </p>
+
+        <span class="project-status">
+          In Development
+        </span>
+
+        <a href="#contact" class="project-link">
+          Project Enquiry ↗
+        </a>
+
+      </article>
+
+
+      <!-- PROJECT 5 -->
+
+      <article class="card project-card">
+
+        <div class="project-icon">🏥</div>
+
+        <h3>Healthcare Website</h3>
+
+        <p>
+          A website project for presenting healthcare
+          services, hospital information and
+          patient contact details.
+        </p>
+
+        <span class="project-status">
