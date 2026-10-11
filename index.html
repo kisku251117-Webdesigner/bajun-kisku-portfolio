@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bajun Kisku | Professional Portfolio</title>
+
+<meta name="description"
+content="Bajun Kisku's personal portfolio for web design, app development and AI integration.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080d1c;
+    color: #f5f7ff;
+    line-height: 1.7;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #0c1228;
+    border-bottom: 1px solid #252d4b;
+    padding: 15px 0;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #a78bfa;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.nav-links a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #a78bfa;
+}
+
+.hero {
+    padding: 75px 0;
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            #43227a 0,
+            transparent 38%
+        ),
+        linear-gradient(135deg, #080d1c, #111a39);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.tag {
+    color: #a78bfa;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(34px, 5vw, 55px);
+    line-height: 1.2;
+    margin: 18px 0;
+}
+
+.highlight {
+    color: #a78bfa;
+}
+
+.hero h2 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #c4cbe0;
+    margin-bottom: 25px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #8b5cf6;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.primary {
+    background: #7c3aed;
+    color: white;
+}
+
+.secondary {
+    color: white;
+    background: transparent;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.photo-box {
+    text-align: center;
+}
+
+.profile {
+    width: 270px;
+    height: 320px;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: 25px;
+    border: 3px solid #8b5cf6;
+    box-shadow: 0 0 40px #7c3aed45;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.upload-label {
+    display: inline-block;
+    padding: 9px 15px;
+    background: #20294a;
+    color: #ddd6fe;
+    border: 1px solid #8b5cf6;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#photoInput {
+    display: none;
+}
+
+section {
+    padding: 70px 0;
+    scroll-margin-top: 75px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #aab3cc;
+    margin-bottom: 35px;
+}
+
+.about-box {
+    max-width: 850px;
+    margin: auto;
+    padding: 30px;
+    background: #101831;
+    border: 1px solid #273253;
+    border-radius: 18px;
+    color: #d3daed;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(145deg, #111b39, #171c40);
+    border: 1px solid #343b68;
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #a78bfa;
+}
+
+.card h3 {
+    color: #c4b5fd;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #bac4dc;
+    font-size: 15px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.skills span {
+    background: #171f3b;
+    color: #d8ccff;
+    border: 1px solid #433477;
+    padding: 10px 18px;
+    border-radius: 25px;
+}
+
+.project-status {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #c4b5fd;
+    border: 1px solid #6551a0;
+    padding: 4px 9px;
+    border-radius: 15px;
+}
+
+.contact-box {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+    background: #101831;
+    border: 1px solid #343b68;
+    padding: 35px 20px;
+    border-radius: 20px;
+}
+
+.contact-box p {
+    color: #c4cbe0;
+    margin: 15px 0 25px;
+}
+
+footer {
+    text-align: center;
+    background: #060a15;
+    border-top: 1px solid #252d4b;
+    padding: 25px 15px;
+    color: #aab3cc;
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+    .nav-content {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .photo-box {
+        grid-row: 1;
+    }
+
+    .profile {
+        width: 220px;
+        height: 260px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="container nav-content">
+        <div class="logo">BK. Portfolio</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero" id="home">
+    <div class="container hero-content">
+
+        <div>
+            <div class="tag">WELCOME TO MY PORTFOLIO</div>
+
+            <h1>
+                Hi, I'm <span class="highlight">Bajun Kisku</span>
+            </h1>
+
+            <h2>Future Web Developer & AI Learner</h2>
+
+            <p>
+                I am learning to build modern websites,
+                responsive web applications and AI-powered
+                digital experiences.
+            </p>
+
+            <div class="buttons">
+                <a class="btn primary" href="#projects">
+                    Explore My Work
+                </a>
+
+                <a class="btn secondary" href="#contact">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+
+        <div class="photo-box">
+            <img
+                id="profileImage"
+                class="profile"
+                alt="Bajun Kisku profile photo"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='270' height='320'%3E%3Crect width='100%25' height='100%25' fill='%23101831'/%3E%3Ctext x='50%25' y='45%25' text-anchor='middle' font-size='65' fill='%23a78bfa'%3EBK%3C/text%3E%3Ctext x='50%25' y='60%25' text-anchor='middle' font-size='14' fill='white'%3EYour Photo%3C/text%3E%3C/svg%3E"
+            >
+
+            <label for="photoInput" class="upload-label">
+                Choose Your Photo
+            </label>
+
+            <input
+                type="file"
+                id="photoInput"
+                accept="image/*"
+            >
+        </div>
+
+    </div>
+</header>
+
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+
+        <p class="section-subtitle">
+            A little introduction about myself
+        </p>
+
+        <div class="about-box">
+            Hello! My name is Bajun Kisku.
+
+            I am learning web design, app development
+            and artificial intelligence.
+
+            <br><br>
+
+            My goal is to build useful digital products,
+            solve real-world problems and grow as a developer.
+            I enjoy learning new technologies and creating
+            projects step by step.
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">My Learning Skills</h2>
+
+        <p class="section-subtitle">
+            Technologies I am learning
+        </p>
+
+        <div class="skills">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Responsive Design</span>
+            <span>No-Code Development</span>
+            <span>API Integration</span>
+            <span>AI Integration</span>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">My Projects</h2>
+
+        <p class="section-subtitle">
+            My learning projects and experiments
+        </p>
+
+        <div class="cards">
+
+            <article class="card">
+                <h3>Portfolio Website</h3>
+                <p>
+                    A personal website to introduce myself
+                    and present my development journey.
+                </p>
+                <span class="project-status">Current Project</span>
+            </article>
+
+            <article class="card">
+                <h3>English Grammar Quiz</h3>
+                <p>
+                    An educational quiz project planned
+                    for English grammar practice.
+                </p>
+                <span class="project-status">Planned Project</span>
+            </article>
+
+            <article class="card">
+                <h3>AI Assistant</h3>
+                <p>
+                    A learning project exploring AI-powered
+                    questions and answers.
+                </p>
+                <span class="project-status">Planned Project</span>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <h2 class="section-title">My Learning Goals</h2>
+
+        <p class="section-subtitle">
+            What I am working towards
+        </p>
+
+        <div class="cards">
+
+            <article class="card">
+                <h3>Web Design</h3>
+                <p>
+                    Learning to create attractive,
+                    mobile-friendly websites.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Web Applications</h3>
+                <p>
+                    Learning to build interactive
+                    applications for everyday tasks.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>AI Integration</h3>
+                <p>
+                    Learning to connect AI services
+                    with websites and applications.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="contact-box">
+            <h2 class="section-title">Let's Connect</h2>
+
+            <p>
+                Thank you for visiting my portfolio.
+                I am learning, practising and building
+                new projects every day.
+            </p>
+
+            <a class="btn primary"
+               href="mailto:your-email@example.com">
+                Email Me
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>
+        © 2026 Bajun Kisku | Personal Portfolio
+    </p>
+</footer>
+
+<script>
+const photoInput = document.getElementById("photoInput");
+const profileImage = document.getElementById("profileImage");
+
+photoInput.addEventListener("change", function () {
+    const file = this.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+        alert("Please choose an image file.");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+        profileImage.src = event.target.result;
+    };
+
+    reader.readAsDataURL(file);
+});
+</script>
+
+</body>
+</html>
